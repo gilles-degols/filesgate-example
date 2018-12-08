@@ -32,8 +32,11 @@
 
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
-  <logger name="net.degols.filesgate.libs.election" level="DEBUG" />
+  <logger name="net.degols.filesgate.libs.election" level="WARN" />
+  <logger name="net.degols.filesgate.libs.cluster" level="WARN" />
+  <logger name="net.degols.filesgate.libs.filesgate" level="DEBUG" />
   <logger name="net.degols.filesgate" level="DEBUG" />
+
   <logger name="net.degols.example" level="DEBUG" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
