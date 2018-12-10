@@ -1,5 +1,13 @@
 package net.degols.example.fsgate.example.pipeline
 
-class PostStorage {
+import net.degols.filesgate.libs.filesgate.pipeline.poststorage.{PostStorageApi, PostStorageMessage}
 
+class PostStorage extends PostStorageApi{
+  /**
+    * @param postStorageMessage
+    * @return
+    */
+  override def process(postStorageMessage: PostStorageMessage): PostStorageMessage = ???
+
+  override def id: String = ???
 }
