@@ -40,9 +40,9 @@ class EngineExample @Inject()(engine: Engine, electionService: ElectionService, 
     workerTypeId match {
       case "example.source" => new Source()
       case "example.matcher" => new Matcher()
-      case "example.predownload" => new PreDownload()
+      case "example.preDownload" => new PreDownload()
       case "example.download" => new Download()
-      case "example.prestorage" => new PreStorage()
+      case "example.preStorage" => new PreStorage()
       case "example.storage" => new Storage()
       case "example.postStorage" => new PostStorage()
       case x => throw new Exception(s"WorkerTypeId received is not implemented: $workerTypeId")
