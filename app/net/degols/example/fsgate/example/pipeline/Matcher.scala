@@ -8,7 +8,5 @@ class Matcher extends MatcherApi{
     * @param fileMetadata
     * @return true if the current pipeline is meant to download the file, or not.
     */
-  override def process(fileMetadata: FileMetadata): Boolean = ???
-
-  override def id: String = ???
+  override def process(fileMetadata: FileMetadata): Boolean = true
 }

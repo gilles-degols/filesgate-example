@@ -9,6 +9,4 @@ class Download extends DownloadApi{
     * @return
     */
   override def process(downloadMessage: DownloadMessage): PreStorageMessage = ???
-
-  override def id: String = ???
 }

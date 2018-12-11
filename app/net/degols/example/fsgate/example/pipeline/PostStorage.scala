@@ -7,7 +7,5 @@ class PostStorage extends PostStorageApi{
     * @param postStorageMessage
     * @return
     */
-  override def process(postStorageMessage: PostStorageMessage): PostStorageMessage = ???
-
-  override def id: String = ???
+  override def process(postStorageMessage: PostStorageMessage): PostStorageMessage = postStorageMessage
 }

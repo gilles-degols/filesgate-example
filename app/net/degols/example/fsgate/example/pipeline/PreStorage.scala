@@ -7,7 +7,5 @@ class PreStorage extends PreStorageApi{
     * @param preStorageMessage
     * @return
     */
-  override def process(preStorageMessage: PreStorageMessage): PreStorageMessage = ???
-
-  override def id: String = ???
+  override def process(preStorageMessage: PreStorageMessage): PreStorageMessage = preStorageMessage
 }

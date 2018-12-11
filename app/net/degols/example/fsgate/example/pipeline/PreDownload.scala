@@ -7,7 +7,5 @@ class PreDownload extends PreDownloadApi{
     * @param preDownloadMessage
     * @return
     */
-  override def process(preDownloadMessage: PreDownloadMessage): PreDownloadMessage = ???
-
-  override def id: String = ???
+  override def process(preDownloadMessage: PreDownloadMessage): PreDownloadMessage = preDownloadMessage
 }
