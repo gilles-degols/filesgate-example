@@ -1,7 +1,7 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.filesgate.pipeline.storage.{StorageApi, StoreMessage}
+import net.degols.filesgate.libs.filesgate.pipeline.storage.{StorageApi, StorageMessage}
 
 class Storage extends StorageApi{
-  override def process(storeMessage: StoreMessage): StoreMessage = storeMessage
+  override def process(storeMessage: StorageMessage): StorageMessage = storeMessage
 }
