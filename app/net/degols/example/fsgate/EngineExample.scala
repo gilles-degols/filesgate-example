@@ -1,15 +1,15 @@
 package net.degols.example.fsgate
 
-import net.degols.filesgate.libs.election.{ConfigurationService, ElectionService, ElectionWrapper}
+import net.degols.libs.election.{ConfigurationService, ElectionService, ElectionWrapper}
 import org.slf4j.LoggerFactory
 import javax.inject.{Inject, Singleton}
 import net.degols.example.fsgate.example.pipeline._
-import net.degols.filesgate.libs.cluster.{ClusterConfiguration, Tools}
-import net.degols.filesgate.libs.cluster.core.Cluster
-import net.degols.filesgate.libs.filesgate.core.EngineLeader
-import net.degols.filesgate.libs.filesgate.core.engine.Engine
-import net.degols.filesgate.libs.filesgate.pipeline.PipelineStepService
-import net.degols.filesgate.libs.filesgate.utils.{FilesgateConfiguration, Tools}
+import net.degols.libs.cluster.{ClusterConfiguration, Tools}
+import net.degols.libs.cluster.core.Cluster
+import net.degols.libs.filesgate.core.EngineLeader
+import net.degols.libs.filesgate.core.engine.Engine
+import net.degols.libs.filesgate.pipeline.PipelineStepService
+import net.degols.libs.filesgate.utils.{FilesgateConfiguration, Tools}
 import play.libs.akka.InjectedActorSupport
 
 /**

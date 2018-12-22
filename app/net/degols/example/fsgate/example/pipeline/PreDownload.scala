@@ -1,6 +1,6 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.filesgate.pipeline.predownload.{PreDownloadApi, PreDownloadMessage}
+import net.degols.libs.filesgate.pipeline.predownload.{PreDownloadApi, PreDownloadMessage}
 
 class PreDownload extends PreDownloadApi{
   /**

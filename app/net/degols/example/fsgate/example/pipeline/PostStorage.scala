@@ -1,6 +1,6 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.filesgate.pipeline.poststorage.{PostStorageApi, PostStorageMessage}
+import net.degols.libs.filesgate.pipeline.poststorage.{PostStorageApi, PostStorageMessage}
 
 class PostStorage extends PostStorageApi{
   /**

@@ -1,7 +1,7 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.filesgate.orm.FileMetadata
-import net.degols.filesgate.libs.filesgate.pipeline.matcher.{MatcherApi, MatcherMessage}
+import net.degols.libs.filesgate.orm.FileMetadata
+import net.degols.libs.filesgate.pipeline.matcher.{MatcherApi, MatcherMessage}
 
 class Matcher extends MatcherApi{
   /**

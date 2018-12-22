@@ -1,6 +1,6 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.filesgate.pipeline.prestorage.{PreStorageApi, PreStorageMessage}
+import net.degols.libs.filesgate.pipeline.prestorage.{PreStorageApi, PreStorageMessage}
 
 class PreStorage extends PreStorageApi{
   /**

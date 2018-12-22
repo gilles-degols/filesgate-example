@@ -1,9 +1,9 @@
 package net.degols.example.fsgate.example.pipeline
 
-import net.degols.filesgate.libs.cluster.Tools
-import net.degols.filesgate.libs.filesgate.pipeline.download.{DownloadApi, DownloadMessage}
-import net.degols.filesgate.libs.filesgate.pipeline.prestorage.PreStorageMessage
-import net.degols.filesgate.libs.filesgate.utils.Tools
+import net.degols.libs.cluster.Tools
+import net.degols.libs.filesgate.pipeline.download.{DownloadApi, DownloadMessage}
+import net.degols.libs.filesgate.pipeline.prestorage.PreStorageMessage
+import net.degols.libs.filesgate.utils.Tools
 import org.slf4j.{Logger, LoggerFactory}
 
 import scala.concurrent.Await
