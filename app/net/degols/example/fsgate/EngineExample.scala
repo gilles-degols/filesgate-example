@@ -12,6 +12,8 @@ import net.degols.libs.filesgate.pipeline.PipelineStepService
 import net.degols.libs.filesgate.utils.{FilesgateConfiguration, Tools}
 import play.libs.akka.InjectedActorSupport
 
+import scala.concurrent.ExecutionContext
+
 /**
   * The developer does not need to start custom actors, but he does need to instantiate the various classes in this class.
   * The configuration (application.conf) is used to start the related actor for every step.
@@ -24,7 +26,7 @@ import play.libs.akka.InjectedActorSupport
   * @param cluster
   */
 @Singleton
-class EngineExample @Inject()(tools: Tools, engine: Engine, electionService: ElectionService, configurationService: ConfigurationService, clusterConfiguration: ClusterConfiguration, filesgateConfiguration: FilesgateConfiguration, cluster: Cluster)
+class EngineExample @Inject()(implicit tools: Tools, engine: Engine, electionService: ElectionService, configurationService: ConfigurationService, clusterConfiguration: ClusterConfiguration, filesgateConfiguration: FilesgateConfiguration, cluster: Cluster)
   extends EngineLeader(engine, electionService, configurationService, clusterConfiguration, filesgateConfiguration, cluster) with InjectedActorSupport{
 
   private val logger = LoggerFactory.getLogger(getClass)
@@ -41,7 +43,7 @@ class EngineExample @Inject()(tools: Tools, engine: Engine, electionService: Ele
       case "example.source" => new Source()
       case "example.matcher" => new Matcher()
       case "example.preDownload" => new PreDownload()
-      case "example.download" => new Download(tools)
+      case "example.download" => new Download()
       case "example.preStorage" => new PreStorage()
       case "example.storage" => new Storage()
       case "example.postStorage" => new PostStorage()

@@ -38,6 +38,8 @@
   <logger name="net.degols.filesgate" level="DEBUG" />
 
   <logger name="net.degols.example" level="DEBUG" />
+  <logger name="net.degols.libs.filesgate.pipeline.PipelineStepActor" level="WARN" />
+  <logger name="net.degols.libs.filesgate.core.pipelineinstance.PipelineGraph" level="WARN" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
   <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
