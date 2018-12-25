@@ -2,10 +2,12 @@ package net.degols.example.fsgate.example.pipeline
 
 import net.degols.libs.filesgate.pipeline.prestorage.{PreStorageApi, PreStorageMessage}
 
-class PreStorage extends PreStorageApi{
+import scala.concurrent.{ExecutionContext, Future}
+
+class PreStorage(implicit val ec: ExecutionContext) extends PreStorageApi{
   /**
     * @param preStorageMessage
     * @return
     */
-  override def process(preStorageMessage: PreStorageMessage): PreStorageMessage = preStorageMessage
+  override def process(preStorageMessage: PreStorageMessage): Future[PreStorageMessage] = Future{preStorageMessage}
 }
