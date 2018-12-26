@@ -1,18 +1,15 @@
 package net.degols.example.fsgate.example.pipeline
 
 import net.degols.libs.cluster.Tools
-import net.degols.libs.filesgate.orm.RawFileContent
+import net.degols.libs.filesgate.orm.FileContent
 import net.degols.libs.filesgate.pipeline.download.{DownloadApi, DownloadMessage}
-import net.degols.libs.filesgate.pipeline.prestorage.PreStorageMessage
 import net.degols.libs.filesgate.utils.Tools
 import org.slf4j.{Logger, LoggerFactory}
 import play.api.libs.json.Json
 
 import scala.concurrent.{Await, ExecutionContext, Future}
-import scala.concurrent.duration._
-import scala.util.{Failure, Success, Try}
 
-class Download(implicit val ec: ExecutionContext, tools: Tools) extends DownloadApi{
+class Download(implicit val ec: ExecutionContext, tools: Tools) extends DownloadApi {
   private val logger: Logger = LoggerFactory.getLogger(getClass)
 
   /**
@@ -24,13 +21,15 @@ class Download(implicit val ec: ExecutionContext, tools: Tools) extends Download
 
     tools.downloadFileInMemory(downloadMessage.fileMetadata.url).map(rawDownloadFile => {
       val duration = rawDownloadFile.end.getTime - rawDownloadFile.start.getTime
-      val content = new RawFileContent()
+      val fileContent = new FileContent(downloadMessage.fileMetadata.id, rawDownloadFile.content.get)
       val downloadMetadata = Json.obj(
-        "download_start" -> Json.obj("$date" -> rawDownloadFile.start.getTime),
+        "download_start_time" -> Json.obj("$date" -> rawDownloadFile.start.getTime),
         "download_duration_ms" -> duration,
-        "size_b" -> rawDownloadFile.size
+        "size_bytes" -> Json.obj("$numberLong" -> rawDownloadFile.size)
       )
-      DownloadMessage(downloadMessage.fileMetadata, downloadMessage.abort, Option(content), Option(downloadMetadata))
+      downloadMessage.fileMetadata.downloaded = true
+      downloadMessage.fileMetadata.metadata = downloadMessage.fileMetadata.metadata ++ downloadMetadata
+      DownloadMessage(downloadMessage.fileMetadata, downloadMessage.abort, Option(fileContent))
     })
   }
 }

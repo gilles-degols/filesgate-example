@@ -27,7 +27,7 @@ import scala.concurrent.ExecutionContext
   */
 @Singleton
 class EngineExample @Inject()(implicit tools: Tools, engine: Engine, electionService: ElectionService, configurationService: ConfigurationService, clusterConfiguration: ClusterConfiguration, filesgateConfiguration: FilesgateConfiguration, cluster: Cluster)
-  extends EngineLeader(engine, electionService, configurationService, clusterConfiguration, filesgateConfiguration, cluster) with InjectedActorSupport{
+  extends EngineLeader(engine, tools, electionService, configurationService, clusterConfiguration, filesgateConfiguration, cluster) with InjectedActorSupport{
 
   private val logger = LoggerFactory.getLogger(getClass)
   override def receive: Receive = {
@@ -46,7 +46,9 @@ class EngineExample @Inject()(implicit tools: Tools, engine: Engine, electionSer
       case "example.download" => new Download()
       case "example.preStorage" => new PreStorage()
       case "example.storage" => new Storage()
-      case "example.postStorage" => new PostStorage()
+      case "example.preMetadata" => new PreMetadata()
+      case "example.metadata" => new Metadata()
+      case "example.postMetadata" => new PostMetadata()
       case x => throw new Exception(s"WorkerTypeId received is not implemented: $workerTypeId")
     }
   }
