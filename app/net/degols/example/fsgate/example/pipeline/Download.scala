@@ -9,27 +9,7 @@ import play.api.libs.json.Json
 
 import scala.concurrent.{Await, ExecutionContext, Future}
 
-class Download(implicit val ec: ExecutionContext, tools: Tools) extends DownloadApi {
+class Download(tools: Tools)(implicit override val ec: ExecutionContext) extends net.degols.libs.filesgate.pipeline.download.Download(tools) {
   private val logger: Logger = LoggerFactory.getLogger(getClass)
 
-  /**
-    * @param downloadMessage
-    * @return
-    */
-  override def process(downloadMessage: DownloadMessage): Future[DownloadMessage] = {
-    logger.info(s"Should download ${downloadMessage.fileMetadata.url}. Time is ${Tools.datetime()}")
-
-    tools.downloadFileInMemory(downloadMessage.fileMetadata.url).map(rawDownloadFile => {
-      val duration = rawDownloadFile.end.getTime - rawDownloadFile.start.getTime
-      val fileContent = new FileContent(downloadMessage.fileMetadata.id, rawDownloadFile.content.get)
-      val downloadMetadata = Json.obj(
-        "download_start_time" -> Json.obj("$date" -> rawDownloadFile.start.getTime),
-        "download_duration_ms" -> duration,
-        "size_bytes" -> Json.obj("$numberLong" -> rawDownloadFile.size)
-      )
-      downloadMessage.fileMetadata.downloaded = true
-      downloadMessage.fileMetadata.metadata = downloadMessage.fileMetadata.metadata ++ downloadMetadata
-      DownloadMessage(downloadMessage.fileMetadata, downloadMessage.abort, Option(fileContent))
-    })
-  }
 }
