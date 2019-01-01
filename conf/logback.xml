@@ -39,7 +39,7 @@
 
   <logger name="net.degols.example" level="WARN" />
   <logger name="net.degols.libs.filesgate.pipeline.PipelineStepActor" level="WARN" />
-  <logger name="net.degols.libs.filesgate.core.pipelineinstance.PipelineGraph" level="WARN" />
+  <logger name="net.degols.libs.filesgate.core.pipelineinstance.PipelineGraph" level="INFO" />
   <logger name="net.degols.libs.filesgate.utils.Tools" level="WARN" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->

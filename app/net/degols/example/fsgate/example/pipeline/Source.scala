@@ -27,9 +27,9 @@ class Source(implicit val tools: Tools) extends DataSourceApi{
       i += 1
       if (i == 5 && false) {
         // Invalid url for test
-        FileMetadata(s"http://127.0.0.1/img/image-$i.jpg")
+        FileMetadata(s"http://127.0.0.1:8000/img/image-$i.jpg")
       } else {
-        FileMetadata(s"http://127.0.0.1/img/image.jpg?n=$i")
+        FileMetadata(s"http://127.0.0.1:8000/img/image.jpg?n=$i")
         //FileMetadata(s"http://127.0.0.1/img/stuff.txt?n=$i")
       }
     }
