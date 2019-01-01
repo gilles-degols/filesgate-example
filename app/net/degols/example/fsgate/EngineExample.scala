@@ -42,6 +42,7 @@ class EngineExample @Inject()(implicit tools: Tools, engine: Engine, electionSer
     workerTypeId match {
       case "example.source" => new Source()
       case "example.matcher" => new Matcher()
+      case "example.matcherTwo" => new MatcherTwo()
       case "example.preDownload" => new PreDownload()
       case "example.download" => new Download(tools)
       case "example.preStorage" => new PreStorage()
