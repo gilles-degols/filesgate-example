@@ -15,7 +15,7 @@ class MatcherTwo(implicit val ec: ExecutionContext, context: ActorContext) exten
 
   override def process(matcherMessage: MatcherMessage): Future[MatcherMessage] = {
     Future{
-      if(r.nextInt(10) == 0) {
+      if(r.nextInt(10) == 0 && false) {
         val abort = AbortStep("Any reason", Option(0L))
         MatcherMessage(matcherMessage.fileMetadata, Option(abort))
       } else {

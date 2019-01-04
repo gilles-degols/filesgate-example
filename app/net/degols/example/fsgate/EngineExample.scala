@@ -41,6 +41,7 @@ class EngineExample @Inject()(implicit tools: Tools, engine: Engine, electionSer
   override def startStepService(workerTypeId: String): PipelineStepService = {
     workerTypeId match {
       case "example.source" => new Source()
+      case "example.sourceTwo" => new SourceTwo()
       case "example.matcher" => new Matcher()
       case "example.matcherTwo" => new MatcherTwo()
       case "example.preDownload" => new PreDownload()
